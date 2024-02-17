@@ -9,9 +9,9 @@ export default async function ProductDetailCard({ product }: { product: Product 
     <section className="flex w-full flex-col md:flex-row py-4">
       <ProductCarousel product={product} />
       <div className=" flex w-full flex-col space-y-2 px-0 py-2 md:w-1/2 md:px-4 lg:px-12">
-        <h1 className="p-2 text-xl font-bold md:text-2xl">{product.name}</h1>
+        <h1 className="p-2 text-xl font-bold md:text-2xl">{product.title}</h1>
         <h2 className="p-2 text-xl font-medium text-primary">
-          Price: ₹ {product.price}
+          Price: {process.env.currencyIcon} {product.price}
         </h2>
         <Table>
           <TableBody>
@@ -20,24 +20,20 @@ export default async function ProductDetailCard({ product }: { product: Product 
               <TableCell>{product.id}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Size:</TableCell>
-              <TableCell>{product.size}</TableCell>
+              <TableCell>Brand:</TableCell>
+              <TableCell>{product.brand}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Fabric:</TableCell>
-              <TableCell>{product.fabric}</TableCell>
+              <TableCell>Category:</TableCell>
+              <TableCell>{product.category}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Color:</TableCell>
-              <TableCell>{product.color}</TableCell>
+              <TableCell>Stock:</TableCell>
+              <TableCell>{product.stock}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Weight:</TableCell>
-              <TableCell>{product.weight}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Features:</TableCell>
-              <TableCell>{product.features}</TableCell>
+              <TableCell>Rating:</TableCell>
+              <TableCell>{product.rating}</TableCell>
             </TableRow>
             {product.description == null ? null : (
               <TableRow>

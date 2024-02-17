@@ -1,4 +1,4 @@
-import { MailIcon, PhoneCallIcon, TruckIcon } from "lucide-react";
+import { MailIcon, PhoneCallIcon, TruckIcon, MapPinIcon, WalletCardsIcon } from "lucide-react";
 import ContactForm from "./contact-form";
 import Link from "next/link";
 
@@ -6,13 +6,16 @@ export default function Footer() {
   return (
     <footer className=" pb-5 md:px-5 md:pb-10">
       <section className="flex flex-row items-center justify-around text-pretty border-y py-10 text-center">
-        <div className="">
+        <div className="flex flex-col items-center justify-center">
+          <MapPinIcon size={42} />
           <span className="text-sm font-medium md:text-lg">Made in Indonesia</span>
         </div>
-        <div className="">
+        <div className="flex flex-col items-center justify-center">
+          <TruckIcon size={42} />
           <span className="text-sm font-medium md:text-lg">Free Shipping</span>
         </div>
-        <div className=" flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
+          <WalletCardsIcon size={42} />
           <span className="text-sm font-medium md:text-lg">Multi Payment Method</span>
         </div>
       </section>
@@ -61,31 +64,31 @@ export default function Footer() {
             <h2 className="mb-3 text-lg font-bold">Contact Us</h2>
             <div className="mb-3 flex gap-2 text-sm hover:underline">
               <MailIcon size={16} />
-              <p>info@amanasia.com</p>
+              <p>gmail@adityawiguna.com</p>
             </div>
             <div className="mb-3 flex gap-2 text-sm hover:underline">
               <PhoneCallIcon size={16} />
-              <p>9868151526</p>
+              <p>6277748888484</p>
             </div>
             <div className="mb-3 flex gap-2 text-sm hover:underline">
               <PhoneCallIcon size={16} />
-              <p>9811365888</p>
+              <p>6277748888484</p>
             </div>
             <div className="mt-2 flex space-x-4">
               <Link
-                href="https://www.facebook.com/amanasia"
+                href="#"
                 className="text-sm hover:underline"
               >
                 Facebook
               </Link>
               <Link
-                href="https://www.twitter.com/amanasia"
+                href="#"
                 className="text-sm hover:underline"
               >
                 Twitter
               </Link>
               <Link
-                href="https://www.instagram.com/amanasia"
+                href="#"
                 className="text-sm hover:underline"
               >
                 Instagram

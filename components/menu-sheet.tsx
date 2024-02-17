@@ -9,13 +9,12 @@ import {
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { MenuIcon } from "lucide-react";
-import { Category } from "@/lib/types";
 import SearchInput from "./search-input";
 
 export default async function MenuSheet({
   categories,
 }: {
-  categories: Category[];
+  categories: any[];
 }) {
   return (
     <Sheet>
@@ -37,11 +36,11 @@ export default async function MenuSheet({
               </Button>
             </Link>
           </SheetClose>
-          {categories.map((category: Category, index: number) => (
+          {categories.map((category, index: number) => (
             <SheetClose asChild key={index}>
-              <Link href={`/category/${category.slug.current}`}>
+              <Link href={`/category/${category}`}>
                 <Button className="text-lg" variant="ghost">
-                  {category.name}
+                  {category}
                 </Button>
               </Link>
             </SheetClose>

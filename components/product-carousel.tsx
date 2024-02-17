@@ -39,7 +39,7 @@ export default function ProductCarousel({ product }: { product: Product }) {
                   src={urlForImage(image)}
                   width={1000}
                   height={1000}
-                  alt={product.name}
+                  alt={product.title}
                   className="rounded-lg"
                   priority
                 />

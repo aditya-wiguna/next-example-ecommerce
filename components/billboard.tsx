@@ -7,8 +7,8 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import Customize from "../public/sliders/customize.webp";
-import EcoFriendly from "../public/sliders/eco-friendly.webp";
+import WorkDevice from "../public/sliders/1.png";
+import Smartwatch from "../public/sliders/2.png";
 import { AspectRatio } from "./ui/aspect-ratio";
 
 export default function Billboard() {
@@ -32,7 +32,7 @@ export default function Billboard() {
             <AspectRatio ratio={2 / 1}>
               <Image
                 className="w-full rounded-lg"
-                src={EcoFriendly}
+                src={WorkDevice}
                 alt=""
                 priority
                 width={1920}
@@ -44,7 +44,7 @@ export default function Billboard() {
             <AspectRatio ratio={2 / 1}>
               <Image
                 className="w-full rounded-lg"
-                src={Customize}
+                src={Smartwatch}
                 alt="Customize your with your own design and preference."
                 width={1920}
                 height={960}

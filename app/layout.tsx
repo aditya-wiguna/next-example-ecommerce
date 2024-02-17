@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     title: "Next Store Aditya Wiguna",
   }
 };
+
 export default function RootLayout({
   children,
 }: {
