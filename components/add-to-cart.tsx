@@ -15,14 +15,20 @@ export default function AddToCartButton({ product }: { product: Product }) {
   const { addToCart, cart }: Actions & State = useCartStore();
   const router = useRouter();
 
-  const cartProduct = {
-    ...product,
-  };
+  // const cartProduct = {
+  //   ...product,
+  // };
 
   const productInCart = cart.find((item) => item.id === product.id);
 
   const handleAddToCart = () => {
-    addToCart(cartProduct);
+    addToCart({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      images: product.images,
+      quantity: 1,
+    });
     toast({
       title: "Item added to cart!",
       action: (
@@ -36,7 +42,13 @@ export default function AddToCartButton({ product }: { product: Product }) {
 
   const handleBuyNow = () => {
     if (productInCart?.quantity === undefined) {
-      addToCart(cartProduct);
+      addToCart({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        images: product.images,
+        quantity: 1,
+      });
     }
     router.push("/cart");
   };

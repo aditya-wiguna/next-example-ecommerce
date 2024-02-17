@@ -3,10 +3,7 @@ import { persist } from "zustand/middleware";
 
 export type Product = {
   id: number;
-  name: string;
-  slug: {
-    current: string;
-  };
+  title: string;
   price: number;
   images: any;
   quantity: number;
@@ -39,11 +36,11 @@ export const useCartStore = create(
       addToCart: (product: Product) => {
         const cart = get().cart;
         const cartItem = cart.find(
-          (item: Product) => item.slug.current === product.slug.current,
+          (item: Product) => item.id === product.id,
         );
         if (cartItem) {
           const updatedCart = cart.map((item) =>
-            item.slug.current === product.slug.current
+            item.id === product.id
               ? { ...item, quantity: item.quantity + 1 }
               : item,
           );
@@ -65,12 +62,12 @@ export const useCartStore = create(
       removeFromCart: (product: Product) => {
         const cart = get().cart;
         const cartItem = cart.find(
-          (item: Product) => item.slug.current === product.slug.current,
+          (item: Product) => item.id === product.id,
         );
         if (cartItem) {
           const updatedCart = cart
             .map((item) =>
-              item.slug.current === product.slug.current
+              item.id === product.id
                 ? { ...item, quantity: item.quantity - 1 }
                 : item,
             )
@@ -85,7 +82,7 @@ export const useCartStore = create(
       deleteFromCart: (product: Product) => {
         const cart = get().cart;
         const updatedCart = cart.filter(
-          (item) => item.slug.current !== product.slug.current,
+          (item) => item.id !== product.id,
         );
         set((state) => ({
           cart: updatedCart,

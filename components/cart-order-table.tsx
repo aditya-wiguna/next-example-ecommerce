@@ -44,7 +44,7 @@ export default function CartOrderTable() {
               <TableBody>
                 {cart.map((product: Product, index: number) => (
                   <TableRow key={index}>
-                    <TableCell>{product.name}</TableCell>
+                    <TableCell>{product.title}</TableCell>
                     <TableCell align="right">₹{product.price}</TableCell>
                     <TableCell align="right">{product.quantity}</TableCell>
                     <TableCell align="right">
