@@ -3,7 +3,7 @@ import MenuSheet from "./menu-sheet";
 import Navbar from "./navbar";
 import Link from "next/link";
 import SearchInput from "./search-input";
-import {CategoryService} from "@/services/categoryService";
+import {CategoryService} from "@/app/services/categoryService";
 
 export default async function Header() {
   const categories = await CategoryService.getAllCategories();

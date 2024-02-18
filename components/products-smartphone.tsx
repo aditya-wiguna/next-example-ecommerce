@@ -1,5 +1,5 @@
 import ProductsMarquee from "./products-marquee";
-import { ProductService } from "@/services/productService";
+import { ProductService } from "@/app/services/productService";
 
 export default async function ProductsSmartphone() {
 

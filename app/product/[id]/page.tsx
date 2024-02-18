@@ -2,7 +2,7 @@ import ProductDetailCard from "@/components/product-detail-card";
 import ProductMarquee from "@/components/products-smartphone";
 import { Product } from "@/lib/types";
 import type { Metadata } from "next";
-import { ProductService } from "@/services/productService";
+import { ProductService } from "@/app/services/productService";
 
 type Props = {
   params: { id: string };
