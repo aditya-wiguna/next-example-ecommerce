@@ -1,37 +1,34 @@
+'use client';
 import ProductDetailCard from "@/components/product-detail-card";
 import ProductMarquee from "@/components/products-smartphone";
 import { Product } from "@/lib/types";
-import type { Metadata } from "next";
-import { ProductService } from "@/app/services/productService";
+import { ProductService } from "@/services/productService";
+import { useState, useEffect } from 'react'
 
 type Props = {
   params: { id: string };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const product: Product = await ProductService.getProduct(params.id);
-
-  return {
-    title: product.title,
-    alternates: {
-      canonical: `/product/${params.id}`,
-    },
-    description: product.description,
-  };
-}
-
 const ProductPage = async ({ params }: Props) => {
-  const product: Product = await ProductService.getProduct(params.id);
+  const [product, setProduct] = useState<Product>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const products = await ProductService.getProduct(params.id);
+      setProduct(products);
+    }
+    fetchData();
+  })
 
   const jsonLd = {
-    "@context": "https://www.oxabags.com/",
+    "@context": "https://www.next-example-ecommerce.adityawiguna.com/",
     "@type": "Product",
-    name: product.title,
-    image: product.thumbnail,
-    description: product.description,
+    name: product?.title,
+    image: product?.thumbnail,
+    description: product?.description,
     brand: {
       "@type": "Brand",
-      name: product.brand,
+      name: product?.brand,
     }
   };
 

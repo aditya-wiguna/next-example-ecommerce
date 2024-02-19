@@ -3,7 +3,7 @@ import AddToCartButton from "./add-to-cart";
 import { Product } from "@/lib/types";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
-export default async function ProductDetailCard({ product }: { product: Product }) {
+export default async function ProductDetailCard({ product }: { product: Product | any }) {
 
   return (
     <section className="flex w-full flex-col md:flex-row py-4">

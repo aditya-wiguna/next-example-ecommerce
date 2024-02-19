@@ -1,9 +1,18 @@
+'use client';
 import ProductsMarquee from "./products-marquee";
-import { ProductService } from "@/app/services/productService";
+import { ProductService } from "@/services/productService";
+import { useState, useEffect } from 'react'
 
 export default async function ProductsSmartphone() {
+  const [products, setProducts] = useState([]);
 
-  const products = await ProductService.getProductsByCategory('smartphones');
+  useEffect(() => {
+    const fetchData = async () => {
+      const products = await ProductService.getProductsByCategory('smartphones');
+      setProducts(products);
+    }
+    fetchData();
+  }, []);
 
   return (
     <section className=" py-4">
